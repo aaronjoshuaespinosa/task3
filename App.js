@@ -7,16 +7,16 @@ import { styles } from './styles';
 
 export default function App() {
 
-  const [date, setDate] = useState(new Date())
-  const [open, setOpen] = useState(false)
-
-  // buttons useStates
+  // modals useStates
   const [modalVisibleAlert, setModalVisibleAlert] = useState(false);
   const [modalVisibleSuccess, setModalVisibleSuccess] = useState(false);
+  const [modalVisibleViewTask, setModalVisibleViewTask] = useState(false);
 
   // forms useStates
   const [textInputGame, setTextInputGame] = useState('');
   const [textInputGoal, setTextInputGoal] = useState('');
+  const [textInputDate, setTextInputDate] = useState('');
+  const [textInputTime, setTextInputTime] = useState('');
 
   // form func
   const checkTextInput = () => {
@@ -30,8 +30,23 @@ export default function App() {
       return;
     }
 
+    if (!textInputDate.trim()) {
+      setModalVisibleAlert(!modalVisibleAlert)
+      return;
+    }
+
+    if (!textInputTime.trim()) {
+      setModalVisibleAlert(!modalVisibleAlert)
+      return;
+    }
+
     setModalVisibleSuccess(!modalVisibleSuccess)
   };
+
+  // view task
+  const viewTask = () => {
+    setModalVisibleViewTask(!modalVisibleViewTask)
+  }
 
   // view
   return (
@@ -50,6 +65,11 @@ export default function App() {
           <View style={styles.modal}>
             <Text style={styles.modalTitleSuccess}>SUCCESS</Text>
             <Text style={styles.modalTxt}>Your game task has been recorded successfully!</Text>
+
+            <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnSuccess}>
+              <Text style={styles.modalBtnSuccessTxt}>View Task</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity onPress={() => setModalVisibleSuccess(!modalVisibleSuccess)} style={styles.modalBtnSuccess}>
               <Text style={styles.modalBtnSuccessTxt}>OK</Text>
             </TouchableOpacity>
@@ -77,6 +97,29 @@ export default function App() {
         </View>
       </Modal>
 
+      {/* view task modal */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisibleViewTask}
+        onRequestClose={() => {
+          setModalVisibleViewTask(!modalVisibleViewTask);
+        }}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modal}>
+            <Text style={styles.modalTitleSuccess}>GAME TASK</Text>
+            <Text style={styles.modalTxt}>Game: {textInputGame}</Text>
+            <Text style={styles.modalTxt}>Goal/Objective: {textInputGoal}</Text>
+            <Text style={styles.modalTxt}>Date: {textInputDate}</Text>
+            <Text style={styles.modalTxt}>Time: {textInputTime}</Text>
+            <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnSuccess}>
+              <Text style={styles.modalBtnSuccessTxt}>OK</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
       {/* header */}
       <View style={styles.headerContainer}>
         <Text style={styles.headerTxt}>GAME TIME LISTER</Text>
@@ -91,7 +134,7 @@ export default function App() {
           <TextInput
             placeholder="Game"
             style={styles.fieldPlaceholder}
-            mode="flat"
+            mode="outlined"
             onChangeText={(value) => setTextInputGame(value)}
           />
         </View>
@@ -101,24 +144,32 @@ export default function App() {
           <TextInput
             placeholder="Goal/Objective"
             style={styles.fieldPlaceholder}
-            mode="flat"
+            mode="outlined"
             onChangeText={(value) => setTextInputGoal(value)}
           />
         </View>
 
-        <Button title="Open" onPress={() => setOpen(true)} />
-      <DatePicker
-        modal
-        open={open}
-        date={date}
-        onConfirm={(date) => {
-          setOpen(false)
-          setDate(date)
-        }}
-        onCancel={() => {
-          setOpen(false)
-        }}
-      />
+        {/* date */}
+        <View style={styles.field}>
+          <TextInput
+            placeholder="Date | Format: 00-00-0000"
+            style={styles.fieldPlaceholder}
+            mode="outlined"
+            maxLength={10}
+            onChangeText={(value) => setTextInputDate(value)}
+          />
+        </View>
+
+        {/* time */}
+        <View style={styles.field}>
+          <TextInput
+            placeholder="Time | Format: 00:00"
+            style={styles.fieldPlaceholder}
+            mode="outlined"
+            maxLength={5}
+            onChangeText={(value) => setTextInputTime(value)}
+          />
+        </View>
 
         {/* btn */}
         <View style={styles.btns}>
