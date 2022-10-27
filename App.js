@@ -109,10 +109,10 @@ export default function App() {
           <View style={styles.modalVT}>
           <Text style={styles.modalTitleVT}>GAME TASK ENTRY</Text>
             <View style={styles.modalTxtVTCont}>
-              <Text style={styles.modalTxtVTBold}>Game: <Text style={styles.modalTxtVT}>{textInputGame}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>Goal/Objective: <Text style={styles.modalTxtVT}>{textInputGoal}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>Date: <Text style={styles.modalTxtVT}>{textInputDate}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>Time: <Text style={styles.modalTxtVT}>{textInputTime}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>GAME: <Text style={styles.modalTxtVT}>{textInputGame}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>GOAL: <Text style={styles.modalTxtVT}>{textInputGoal}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>DATE: <Text style={styles.modalTxtVT}>{textInputDate}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>TIME: <Text style={styles.modalTxtVT}>{textInputTime}</Text></Text>
             </View>
             <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnVT}>
               <Text style={styles.modalBtnVTTxt}>OK</Text>
