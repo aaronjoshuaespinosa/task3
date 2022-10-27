@@ -25,6 +25,26 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 5,
     },
+    modalContainerVT: {
+        height: '100%',
+        width: '100%',
+        alignItems: "center",
+        justifyContent: 'center',
+    },
+    modalVT: {
+        backgroundColor: '#1b1b1b',
+        alignItems: "center",
+        justifyContent: 'center',
+        padding: 8,
+        width: '100%',
+        height: '100%',
+        borderRadius: 5,
+    },
+    modalTxtVTCont: {
+        padding: 16,
+        width: '100%',
+        borderRadius: 5,
+    },
     modalTitleAlert: {
         color: '#CA5E57',
         fontWeight: '900',
@@ -37,8 +57,28 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginVertical: 8,
     },
+    modalTitleVT: {
+        position: 'absolute',
+        top: 64,
+        color: '#ffa31a',
+        fontWeight: '900',
+        fontSize: 34,
+        marginVertical: 8,
+    },
     modalTxt: {
         marginVertical: 24,
+    },
+    modalTxtVT: {
+        marginVertical: 16,
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#ebebeb',
+    },
+    modalTxtVTBold: {
+        marginVertical: 16,
+        fontSize: 24,
+        fontWeight: '900',
+        color: '#ebebeb',
     },
     modalBtnSuccess: {
         backgroundColor: '#4CB543',
@@ -64,6 +104,22 @@ const styles = StyleSheet.create({
         width: '95%',
     },
     modalBtnAlertTxt: {
+        color: '#ebebeb',
+        fontWeight: '600',
+        fontSize: 16,
+    },
+    modalBtnVT: {
+        position: 'absolute',
+        bottom: 64,
+        backgroundColor: '#ffa31a',
+        borderRadius: 5,
+        marginVertical: 8,
+        paddingVertical: 16,
+        alignItems: "center",
+        justifyContent: 'center',
+        width: '95%',
+    },
+    modalBtnVTTxt: {
         color: '#ebebeb',
         fontWeight: '600',
         fontSize: 16,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Modal, Button } from 'react-native';
+import { Text, View, TouchableOpacity, Modal } from 'react-native';
 import { TextInput } from 'react-native-paper';
-import DatePicker from 'react-native-date-picker'
 
 import { styles } from './styles';
 
@@ -106,15 +105,17 @@ export default function App() {
           setModalVisibleViewTask(!modalVisibleViewTask);
         }}
       >
-        <View style={styles.modalContainer}>
-          <View style={styles.modal}>
-            <Text style={styles.modalTitleSuccess}>GAME TASK</Text>
-            <Text style={styles.modalTxt}>Game: {textInputGame}</Text>
-            <Text style={styles.modalTxt}>Goal/Objective: {textInputGoal}</Text>
-            <Text style={styles.modalTxt}>Date: {textInputDate}</Text>
-            <Text style={styles.modalTxt}>Time: {textInputTime}</Text>
-            <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnSuccess}>
-              <Text style={styles.modalBtnSuccessTxt}>OK</Text>
+        <View style={styles.modalContainerVT}>
+          <View style={styles.modalVT}>
+          <Text style={styles.modalTitleVT}>GAME TASK ENTRY</Text>
+            <View style={styles.modalTxtVTCont}>
+              <Text style={styles.modalTxtVTBold}>Game: <Text style={styles.modalTxtVT}>{textInputGame}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>Goal/Objective: <Text style={styles.modalTxtVT}>{textInputGoal}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>Date: <Text style={styles.modalTxtVT}>{textInputDate}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>Time: <Text style={styles.modalTxtVT}>{textInputTime}</Text></Text>
+            </View>
+            <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnVT}>
+              <Text style={styles.modalBtnVTTxt}>OK</Text>
             </TouchableOpacity>
           </View>
         </View>
