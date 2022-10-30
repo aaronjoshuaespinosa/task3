@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, TouchableOpacity, Modal, Image, StatusBar } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 import { styles } from './styles';
@@ -50,6 +50,7 @@ export default function App() {
   // view
   return (
     <View style={styles.mainContainer}>
+      <StatusBar />
 
       {/* success modal */}
       <Modal
@@ -63,6 +64,7 @@ export default function App() {
         <View style={styles.modalContainer}>
           <View style={styles.modal}>
             <Text style={styles.modalTitleSuccess}>SUCCESS</Text>
+            <Image style={styles.modalImg} source={require('./assets/check.png')} />
             <Text style={styles.modalTxt}>Your game task has been recorded successfully!</Text>
 
             <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnSuccess}>
@@ -88,6 +90,7 @@ export default function App() {
         <View style={styles.modalContainer}>
           <View style={styles.modal}>
             <Text style={styles.modalTitleAlert}>ALERT</Text>
+            <Image style={styles.modalImg} source={require('./assets/alert.png')} />
             <Text style={styles.modalTxt}>Please fill in all input fields.</Text>
             <TouchableOpacity onPress={() => setModalVisibleAlert(!modalVisibleAlert)} style={styles.modalBtnAlert}>
               <Text style={styles.modalBtnAlertTxt}>OK</Text>
@@ -107,12 +110,16 @@ export default function App() {
       >
         <View style={styles.modalContainerVT}>
           <View style={styles.modalVT}>
-          <Text style={styles.modalTitleVT}>GAME TASK ENTRY</Text>
-            <View style={styles.modalTxtVTCont}>
-              <Text style={styles.modalTxtVTBold}>GAME: <Text style={styles.modalTxtVT}>{textInputGame}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>GOAL: <Text style={styles.modalTxtVT}>{textInputGoal}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>DATE: <Text style={styles.modalTxtVT}>{textInputDate}</Text></Text>
-              <Text style={styles.modalTxtVTBold}>TIME: <Text style={styles.modalTxtVT}>{textInputTime}</Text></Text>
+            <View style={styles.headerContainer}>
+              <Image style={styles.headerImg} source={require('./assets/taskHeaderBG.png')} />
+              <Text style={styles.modalTitleVT}>GAME TASK ENTRY</Text>
+            </View>
+            <View style={styles.formContainer}>
+            <Text style={styles.note}>Trivia: Mas malaki pa Tiny ni Saksa kay Roshan!!!</Text>
+              <Text style={styles.modalTxtVTBold}>GAME:  <Text style={styles.modalTxtVT}>{textInputGame}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>GOAL:  <Text style={styles.modalTxtVT}>{textInputGoal}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>DATE:  <Text style={styles.modalTxtVT}>{textInputDate}</Text></Text>
+              <Text style={styles.modalTxtVTBold}>TIME:  <Text style={styles.modalTxtVT}>{textInputTime}</Text></Text>
             </View>
             <TouchableOpacity onPress={() => setModalVisibleViewTask(!modalVisibleViewTask)} style={styles.modalBtnVT}>
               <Text style={styles.modalBtnVTTxt}>OK</Text>
@@ -123,6 +130,7 @@ export default function App() {
 
       {/* header */}
       <View style={styles.headerContainer}>
+        <Image style={styles.headerImg} source={require('./assets/headerBG.png')} />
         <Text style={styles.headerTxt}>GAME TIME LISTER</Text>
       </View>
 
@@ -132,8 +140,9 @@ export default function App() {
 
         {/* game */}
         <View style={styles.field}>
+          <Text style={styles.tiTitle}>Game</Text>
           <TextInput
-            placeholder="Game"
+            placeholder="Valorant"
             style={styles.fieldPlaceholder}
             mode="outlined"
             onChangeText={(value) => setTextInputGame(value)}
@@ -142,34 +151,39 @@ export default function App() {
 
         {/* goal */}
         <View style={styles.field}>
+          <Text style={styles.tiTitle}>Objective</Text>
           <TextInput
-            placeholder="Goal/Objective"
+            placeholder="Achieve Radiant in 1 hour"
             style={styles.fieldPlaceholder}
             mode="outlined"
             onChangeText={(value) => setTextInputGoal(value)}
           />
         </View>
 
-        {/* date */}
-        <View style={styles.field}>
-          <TextInput
-            placeholder="Date | Format: 00-00-0000"
-            style={styles.fieldPlaceholder}
-            mode="outlined"
-            maxLength={10}
-            onChangeText={(value) => setTextInputDate(value)}
-          />
-        </View>
+        <View style={styles.duoFieldContainer}>
+          {/* date */}
+          <View style={styles.duoField1}>
+            <Text style={styles.tiTitle}>Date</Text>
+            <TextInput
+              placeholder="69/69/6969"
+              style={styles.fieldPlaceholder}
+              mode="outlined"
+              maxLength={10}
+              onChangeText={(value) => setTextInputDate(value)}
+            />
+          </View>
 
-        {/* time */}
-        <View style={styles.field}>
-          <TextInput
-            placeholder="Time | Format: 00:00"
-            style={styles.fieldPlaceholder}
-            mode="outlined"
-            maxLength={5}
-            onChangeText={(value) => setTextInputTime(value)}
-          />
+          {/* time */}
+          <View style={styles.duoField2}>
+            <Text style={styles.tiTitle}>Time</Text>
+            <TextInput
+              placeholder="69:69"
+              style={styles.fieldPlaceholder}
+              mode="outlined"
+              maxLength={5}
+              onChangeText={(value) => setTextInputTime(value)}
+            />
+          </View>
         </View>
 
         {/* btn */}
@@ -179,6 +193,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </View>
+      <TouchableOpacity ></TouchableOpacity>
     </View>
   );
 }
