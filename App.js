@@ -170,7 +170,7 @@ export default function App() {
           <View style={styles.duoField1}>
             <Text style={styles.tiTitle}>Date</Text>
             <TextInput
-              placeholder="69/69/6969"
+              placeholder="01/01/1969"
               style={styles.fieldPlaceholder}
               mode="outlined"
               maxLength={10}
@@ -182,7 +182,7 @@ export default function App() {
           <View style={styles.duoField2}>
             <Text style={styles.tiTitle}>Time</Text>
             <TextInput
-              placeholder="69:69"
+              placeholder="00:00"
               style={styles.fieldPlaceholder}
               mode="outlined"
               maxLength={5}
