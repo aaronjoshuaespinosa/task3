@@ -217,6 +217,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#1b1b1b',
     },
+    ads: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '10%',
+    },
+    adsImg: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+    },
 });
 
 export { styles }

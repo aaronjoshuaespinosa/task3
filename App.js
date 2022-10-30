@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, Modal, Image, StatusBar } from 'react-native';
+import { Text, View, TouchableOpacity, Modal, Image, StatusBar, Linking } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
 import { styles } from './styles';
 
 export default function App() {
+
+  const ads = () => {
+    const adLink = 'https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en&gl=US';
+    Linking.openURL(adLink);
+  }
 
   // modals useStates
   const [modalVisibleAlert, setModalVisibleAlert] = useState(false);
@@ -193,7 +198,9 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity ></TouchableOpacity>
+      <TouchableOpacity style={styles.ads} onPress={ads}>
+        <Image style={styles.adsImg} source={require('./assets/ads.jpg')} />
+      </TouchableOpacity>
     </View>
   );
 }
