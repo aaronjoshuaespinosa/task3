@@ -25,6 +25,10 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 5,
     },
+    modalImg: {
+        width: 50,
+        height: 50,
+    },
     modalContainerVT: {
         height: '100%',
         width: '100%',
@@ -35,7 +39,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#1b1b1b',
         alignItems: "center",
         justifyContent: 'center',
-        padding: 8,
         width: '100%',
         height: '100%',
         borderRadius: 5,
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     modalTitleAlert: {
-        color: '#CA5E57',
+        color: '#ee404c',
         fontWeight: '900',
         fontSize: 20,
         marginVertical: 8,
@@ -58,15 +61,14 @@ const styles = StyleSheet.create({
         marginVertical: 8,
     },
     modalTitleVT: {
-        position: 'absolute',
-        top: 64,
         color: '#ffa31a',
         fontWeight: '900',
-        fontSize: 34,
-        marginVertical: 8,
+        fontSize: 40,
+        textAlign: 'center',
+        marginHorizontal: 64,
     },
     modalTxt: {
-        marginVertical: 24,
+        marginVertical: 16,
     },
     modalTxtVT: {
         marginVertical: 16,
@@ -76,8 +78,11 @@ const styles = StyleSheet.create({
     },
     modalTxtVTBold: {
         marginVertical: 16,
+        paddingHorizontal: 32,
         fontSize: 24,
         fontWeight: '900',
+        alignItems: 'flex-start',
+        width: '100%',
         color: '#ebebeb',
     },
     modalBtnSuccess: {
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     modalBtnAlert: {
-        backgroundColor: '#CA5E57',
+        backgroundColor: '#ee404c',
         borderRadius: 5,
         marginVertical: 8,
         paddingVertical: 16,
@@ -110,14 +115,14 @@ const styles = StyleSheet.create({
     },
     modalBtnVT: {
         position: 'absolute',
-        bottom: 64,
+        bottom: 32,
         backgroundColor: '#ffa31a',
         borderRadius: 5,
         marginVertical: 8,
         paddingVertical: 16,
         alignItems: "center",
         justifyContent: 'center',
-        width: '95%',
+        width: '85%',
     },
     modalBtnVTTxt: {
         color: '#ebebeb',
@@ -125,25 +130,31 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     headerContainer: {
-        flex: 0.2,
+        flex: 0.25,
         width: '100%',
         backgroundColor: '#1b1b1b',
         alignItems: 'center',
         justifyContent: 'center',
     },
     headerTxt: {
-        fontSize: 28,
-        fontWeight: '800',
+        fontSize: 40,
+        fontWeight: '900',
         color: '#ffa31a',
         textAlign: 'center',
-        lineHeight: 28,
+        lineHeight: 40,
         marginHorizontal: 100,
-        marginTop: 24,
+        elevation: 1,
+    },
+    headerImg: {
+        position: 'absolute',
+        width: '100%',
+        resizeMode: 'contain',
+        elevation: 5,
     },
     formContainer: {
-        flex: 0.8,
+        flex: 0.75,
         width: '100%',
-        backgroundColor: '#292929',
+        backgroundColor: '#1b1b1b',
         alignItems: 'center',
     },
     note: {
@@ -158,6 +169,12 @@ const styles = StyleSheet.create({
     field: {
         width: '100%',
         paddingHorizontal: 16,
+    },
+    tiTitle: {
+        marginLeft: 16,
+        color: '#7a7a7a',
+        fontWeight: '100',
+        fontSize: 14,
     },
     duoFieldContainer: {
         width: '100%',
